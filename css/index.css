@@ -1,0 +1,119 @@
+@charset "UTF-8";
+img { max-width: 100%; }
+.header {
+    position:fixed;
+    top: 0;
+    display:block;
+    width: 100%;
+    height: 5rem;
+    line-height: 5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: left;
+    letter-spacing: .2rem;
+    text-indent: 2rem;
+    background: #222;
+    z-index:9;
+}
+.header .fullpageMenu {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+.header .fullpageMenu li {
+    float: left;
+    width: 5rem;
+    text-align: center;
+}
+.fullpageMenu li a {
+    display: block;
+    color: #fff;
+}
+.header .fullpageMenu li.active { background-color: rgba(77, 85, 93, 0.4); }
+.section {
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+.section .inner-section-top {
+    display: inline-block;
+    margin-top: -2rem;
+    padding: .8rem 1.8rem;
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: .4rem;
+}
+.section .inner-section-top .padding0 { padding: 0; }
+.section .inner-section-top .inline-img {
+    display: inline-block;
+    vertical-align: middle;
+}
+.section .inner-section-bottom {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: .8rem 1.8rem;
+    font-size: 1.4rem;
+    color: #ffc;
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: .4rem;
+}
+.section .inner-section-bottom ol li { text-align: left; list-style-type: disc; }
+.section .inner-section-bottom ul li { text-align: left; list-style-type: circle; }
+.section .inner-section-bottom a { color: #2980b9; }
+.section .inner-section-bottom a:hover { color: #3498db; }
+.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten,
+.eleven, .twelve, .thirteen, .fourteen, .fifteen, .sixteen, .seventeen, .eighteen, .nineteen,
+.one-slide1, .one-slide2, one-slide3, one-slide4, .eight-slide1, .eight-slide2, .eight-slide3,
+.eleven-slide1, .eleven-slide2, .eleven-slide1, .eleven-slide2,
+.thirteen-slide1, .thirteen-slide2, .thirteen-slide3,
+.fifteen-slide1, .fifteen-slide3, .fifteen-slide3 {
+    background-color: #222;
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.one-slide1 { background-image: url('../images/bg1.jpg'); }
+.one-slide2 { background-image: url('../images/bg2.jpg'); }
+.one-slide3 { background-image: url('../images/bg3.jpg'); }
+.one-slide4 { background-image: url('../images/bg4.jpg'); }
+.two { background-image: url('../images/bg5.jpg'); }
+.three { background-image: url('../images/bg6.jpg'); }
+.four { background-image: url('../images/bg7.jpg'); }
+.five { background-image: url('../images/bg8.jpg'); }
+.six { background-image: url('../images/bg9.jpg'); }
+.seven { background-image: url('../images/bg10.jpg'); }
+.eight-slide1 { background-image: url('../images/bg11.jpg'); }
+.eight-slide2 { background-image: url('../images/bg12.jpg'); }
+.eight-slide3 { background-image: url('../images/bg13.jpg'); }
+.nine { background-image: url('../images/bg14.jpg'); }
+.ten { background-image: url('../images/bg15.jpg'); }
+.eleven-slide1 { background-image: url('../images/bg16.jpg'); }
+.eleven-slide2 { background-image: url('../images/bg17.jpg'); }
+.twelve { background-image: url('../images/bg18.jpg'); }
+.thirteen-slide1 { background-image: url('../images/bg19.jpg'); }
+.thirteen-slide2 { background-image: url('../images/bg20.jpg'); }
+.thirteen-slide3 { background-image: url('../images/bg21.jpg'); }
+.fourteen { background-image: url('../images/bg22.jpg'); }
+.fifteen-slide1 { background-image: url('../images/bg23.jpg'); }
+.fifteen-slide2 { background-image: url('../images/bg24.jpg'); }
+.fifteen-slide3 { background-image: url('../images/bg25.jpg'); }
+.sixteen { background-image: url('../images/bg26.jpg'); }
+.seventeen { background-image: url('../images/bg27.jpg'); }
+.eighteen { background-image: url('../images/bg28.jpg'); }
+.nineteen { background-image: url('../images/bg29.jpg'); }
+
+.circle {
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    margin-right: .8rem;
+    line-height: 4rem;
+    vertical-align: top;
+    color: #2980b9;
+    text-align: center;
+    background-color: #ffc;
+    border-radius: 50%;
+}

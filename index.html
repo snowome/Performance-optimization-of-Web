@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <link rel="Bookmark" href="favicon.ico" />
+    <link rel="Shortcut Icon" href="favicon.ico" />
+    <link rel="icon" href="favicon.ico" mce_href="favicon.ico" type="image/x-icon" />
+    <title>Web前端性能优化</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="plugin/fullpage/jquery.fullpage.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+<header class="header">
+    Web前端性能优化
+    <ul class="fullpageMenu clearfix" id="fullpageMenu">
+        <li data-menuanchor="page1" class="active"><a href="#page1">1</a></li>
+        <!--<li data-menuanchor="page2"><a href="#page2">2</a></li>-->
+        <li data-menuanchor="page3"><a href="#page3">3</a></li>
+        <!--<li data-menuanchor="page4"><a href="#page4">4</a></li>-->
+        <li data-menuanchor="page5"><a href="#page5">5</a></li>
+        <!--<li data-menuanchor="page6"><a href="#page6">6</a></li>-->
+        <li data-menuanchor="page7"><a href="#page7">7</a></li>
+        <!--<li data-menuanchor="page8"><a href="#page8">8</a></li>-->
+        <li data-menuanchor="page9"><a href="#page9">9</a></li>
+        <!--<li data-menuanchor="page10"><a href="#page10">10</a></li>-->
+        <li data-menuanchor="page11"><a href="#page11">11</a></li>
+        <!--<li data-menuanchor="page12"><a href="#page12">12</a></li>-->
+        <li data-menuanchor="page13"><a href="#page13">13</a></li>
+        <!--<li data-menuanchor="page14"><a href="#page14">14</a></li>-->
+        <li data-menuanchor="page15"><a href="#page15">15</a></li>
+        <!--<li data-menuanchor="page16"><a href="#page16">16</a></li>-->
+        <li data-menuanchor="page17"><a href="#page17">17</a></li>
+        <!--<li data-menuanchor="page18"><a href="#page18">18</a></li>-->
+        <li data-menuanchor="page19"><a href="#page19">19</a></li>
+    </ul>
+</header>
+<div id="fullPage">
+    <div class="section one">
+        <div class="slide one-slide1">
+            <div class="inner-section-top">
+                一、减少HTTP请求：<span class="circle">1</span>图片地图 <img class="inline-img" src="images/imagemap.gif" alt="图片地图"  />
+            </div>
+            <div></div>
+            <div class="inner-section-bottom padding0">
+                <img src="images/img_map_code.png" />
+            </div>
+        </div>
+        <div class="slide one-slide2">
+            <div class="inner-section-top">
+                一、减少HTTP请求：<span class="circle">2</span>CSS Sprites（CSS 精灵）
+            </div>
+            <div></div>
+            <div class="inner-section-bottom">
+                CSS 精灵制作、使用网址：<a href="http://csssprites.com/" target="_blank">http://csssprites.com/</a>
+            </div>
+        </div>
+        <div class="slide one-slide3">
+            <div class="inner-section-top">
+                一、减少HTTP请求：<span class="circle">3</span>内联图片（base64编码图片）
+            </div>
+            <div></div>
+            <div class="inner-section-bottom">
+                把图片生成base64编码网址：<a href="https://www.base64-image.de/" target="_blank">https://www.base64-image.de/</a>
+            </div>
+        </div>
+        <div class="slide one-slide4">
+            <div class="inner-section-top">
+                一、减少HTTP请求：<span class="circle">4</span>合并JS文件和CSS文件
+            </div>
+         </div>
+    </div>
+    <div class="section two">
+        <div class="inner-section-top">
+            二、使用内容发布网络（cdn）
+        </div>
+        <div></div>
+        <div class="inner-section-bottom">
+            <ol>
+                <li>据统计：只有10%-20%的最终用户响应时间花在下载HTML文档上，其余80%-90%的时间花在下载页面中的所有组件上。</li>
+                <li>CDN是一组分布在多个不同地理位置的web服务器，它会选择最短响应时间的服务器。</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section three">
+        <div class="inner-section-top">
+            三、添加Expire头、Catch-control
+        </div>
+        <div></div>
+        <div class="inner-section-bottom">
+            <ol>
+                <li>Expire头: <a href="https://www.taobao.com/" target="_blank">https://www.taobao.com/</a>  网站 <span style="color: #fff;">Response Headers</span> 下的 <span style="color: #fff;">expires:Fri, 29 Jun 2018 15:43:44 GMT</span></li>
+                <li>Expire使用一个特定的时间，要求服务器和客户端的时钟严格同步。另外，过期时间需要经常检查，过期时间到了还需要在服务器中配置一个新的日期。</li>
+                <li>Catch-control：<a href="http://www.163.com/" target="_blank">http://www.163.com/</a> 网站 <span style="color: #fff;">Response Headers</span> 下的 <span style="color: #fff;">Cache-Control:max-age=5184000</span></li>
+                <li>HTTP1.1中Catch-control使用max-age指令指定组件被缓冲多久，比如:未来1年，以秒为单位的时间。</li>
+                <li>Expire和Catch-control可以同时指定。如果不支持http1.1，则使用添加Expire，否则Catch-control覆盖Expire。</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section four">
+        <div class="inner-section-top">
+            四、压缩组件（脚本、样式表）― Gzip
+        </div>
+        <div></div>
+        <div class="inner-section-bottom">
+            <ol>
+                <li>效果示例：<a href="https://bbs.dji.com/" target="_blank">https://bbs.dji.com/</a></li>
+                <li>当浏览器通过代理来发送请求时，情况就变得复杂了。</li>
+                <li>假设针对某个URL发送到代理的第一个请求来自于一个不支持Gzip的浏览器。这是到达代理的第一个请求，因此缓冲为空。</li>
+                <li>代理会将请求发送到web服务器。此时服务器的响应是未经过压缩的，这个没有压缩的响应被代理服务器缓冲并发给浏览器。</li>
+                <li>假设另外一个浏览器发送的第二个请求是同一个URL，并且该浏览器支持Gzip，代理会使用缓冲中(未经压缩)的内容进行响应。失去了压缩的机会。</li>
+                <li>如果顺序反了，第一个请求来自支持Gzip的浏览器，而第二个请求来自一个不支持Gzip的浏览器，情况就严重了，该浏览器无法解压。</li>
+                <li>解决办法：在web服务器的响应中添加Vary头―Response Headers下的 vary:Accept-Encoding</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section five">
+        <div class="inner-section-top">
+            五、将样式表放在顶部
+        </div>
+        <div></div>
+        <div class="inner-section-bottom">
+            <ol>
+                <li>将样式表放在页面底部会导致在浏览器中阻止页面逐步呈现。</li>
+                <li>为避免当样式变化时重绘页面中的元素，浏览器会阻塞页面逐步呈现，导致白屏或者闪烁。</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section six">
+        <div class="inner-section-top">
+            六、将脚本放在底部
+        </div>
+        <div></div>
+        <div class="inner-section-bottom">
+            <ol>
+                <li>将JS文件放在底部，页面既可以逐步呈现，也可以提高下载的并行度。</li>
+                <li>原因一：脚本可能使用document.write来修改内容，因此浏览器会等待，以确保页面能够恰当的布局。</li>
+                <li>原因二：脚本阻塞并行下载的另外一个原因是为了保证脚本能够按照正确的顺序执行，比如后边的脚本依赖前边的脚本。</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section seven">
+        <div class="inner-section-top">
+            七、避免CSS表达式
+        </div>
+        <div></div>
+        <div class="inner-section-bottom">
+            <img src="images/list_7_1.png" alt="" />
+        </div>
+    </div>
+    <div class="section eight">
+        <div class="slide eight-slide1">
+            <div class="inner-section-top">
+                八、将JavaScript 和 CSS 放在外部文件中 <span class="circle">1</span>
+            </div>
+            <div></div>
+            <div class="inner-section-bottom">
+                <ol>
+                    <li style="list-style-type: decimal;">一般来说：内联比外部文件要快一些，因为内联没有HTTP请求。</li>
+                    <li style="list-style-type: decimal;">但是：一般动态的HTML文档不会配置为可缓存。每次请求HTML文档都要下载内联的JS和CSS。</li>
+                    <li style="list-style-type: decimal;">如果JS或者CSS采用外部文件，浏览器就能缓存它们。</li>
+                    <li style="list-style-type: decimal;">因此：如果你的网站能够为用户带来高完整缓存率，使用外部文件的收益更大。如果不大可能产生完整缓存，则内联更合适。</li>
+                    <li style="list-style-type: decimal;">如果每个页面都使用了相同的JS、CSS文件，可以提高重用率。如：页面间导航时，JS和CSS组件已经在缓冲中了。</li>
+                    <li style="list-style-type: decimal;">
+                        使用内联方式反而更好的一个例外是：主页。因为主页对响应能力有更高的要求。原因如下：
+                        <ul style="padding-left: 1rem;">
+                            <li>主页虽然有较高的页面浏览数量，但通常情况只产生一个会话。</li>
+                            <li>完整缓存的百分比要比其他页面低，因为用户大多数用户只看了主页就关闭了。而浏览器又设置为关闭浏览器时清空缓冲。</li>
+                            <li>很多主页是用户来到网站时的唯一页面，因此谈不上重用。</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="slide eight-slide2">
+            <div class="inner-section-top">
+                八、将JavaScript 和 CSS 放在外部文件中 <span class="circle">2</span>加载后下载
+            </div>
+            <div></div>
+            <div class="inner-section-bottom" style="font-size: 1.3rem;">
+                <ul>
+                    <li>主页内联JS和CSS，但又能为后续页面提供外部外部文件，可通过主页加载完成后动态下载外部组件来实现。这能够将外部文件放到浏览器的缓冲中以便用户接下来访问其他页面。</li>
+                    <li>在这些页面中，JS和CSS被加载到页面中两次(先是内联的，然后是外部的)。要使其能够工作，必须处理双重定义。比如JS，可以定义，但不能执行任何函数。另外，使用了相对单位(百分比或em)的CSS，如果指定两次可能会产生问题。将这些组件放到一个不可见的iframe中是一种更好的方式，能够避免这些问题。</li>
+                </ul>
+                <div class="pull-left" style="width: 50%;">
+                    <img src="images/list_8_1.png" alt="" style="width: 100%;"/>
+                </div>
+                <div class="pull-right" style="width: 50%;">
+                    <img src="images/list_8_2.png" alt="" style="width: 100%;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section nine">
+        <div class="inner-section-top">
+            九、通过使用 Keep-Alive 和较少的域名来减少 DNS 查找
+        </div>
+        <div></div>
+        <div class="inner-section-bottom">
+            <ol>
+                <li>
+                    Keep-Alive 并不是HTTP1.1 所必须的，但很多浏览器和服务器都包含它。
+                    <ul style="padding-left: 2rem;">
+                        <li style="list-style-type: decimal;">HTTP构建在TCP之上。在HTTP的早期实现中，每个HTTP请求都打开一个socket连接。这样做效率很低，因为一个页面中很多HTTP请求都指向同一服务器。</li>
+                        <li style="list-style-type: decimal;">例如：很多为Web页面中的图片发起的请求都指向一个通用的图片服务器。</li>
+                        <li style="list-style-type: decimal;">持久连接的引入解决了多对一请求服务器导致的socket连接低效性的问题。它使浏览器在一个单独的连接上进行多次请求。</li>
+                        <li style="list-style-type: decimal;">请求头和响应头使用Connection来指出对 Keep-Alive 的支持。<img src="images/list_9_1.png" /></li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="section ten">
+        <div class="inner-section-top">
+            十、精简 JavaScript 源代码
+        </div>
+        <div></div>
+        <div class="inner-section-bottom">
+            <ol>
+                <li>精简：移除注释、空白字符</li>
+                <li>
+                    混淆：也会移除注释和空白。函数和变量的名字被转化为更短的字符串。
+                    <ul style="padding-left: 2rem;">
+                        <li>由于混淆更加复杂，混淆过程很有可能引入错误。</li>
+                        <li>由于混淆会改变JavaScript符号，因此需要对任何不能改变的符号，比如API函数进行标记，防止混淆器修改它们。</li>
+                    </ul>
+                </li>
+                <li>
+                    工具：skrinksafe
+                    <ul style="padding-left: 2rem;">
+                        <li>skrinksafe 移除了大部分空白。</li>
+                        <li>同时缩短了变量名。</li>
+                        <li>支持合并文件。</li>
+                        <li>使用网址：<a href="http://shrinksafe.dojotoolkit.org/" target="_blank">http://shrinksafe.dojotoolkit.org/</a></li>
+                    </ul>
+                </li>
+                <li>
+                    工具：Koala
+                    <ul style="padding-left: 2rem;">
+                        <li>下载网址：<a href="http://koala-app.com/" target="_blank">http://koala-app.com/</a></li>
+                    </ul>
+                </li>
+            </ol>
+
+        </div>
+     </div>
+    <div class="section eleven">
+        <div class="slide eleven-slide1">
+            <div class="inner-section-top">
+                十一、避免重定向 <span class="circle">1</span>
+            </div>
+            <div></div>
+            <div class="inner-section-bottom">
+                重定向会忽视缓冲，浏览器需要重新下载，状态码通常是301、302。
+            </div>
+        </div>
+        <div class="slide eleven-slide2">
+            <div class="inner-section-top">
+                十一、避免重定向 <span class="circle">2</span>缺少结尾的斜线
+            </div>
+            <div></div>
+            <div class="inner-section-bottom">
+                <ol>
+                    <li>有一种重定向最为浪费，发生的也很频繁，URL的结尾必须出现(/)而没有出现时，导致301响应。</li>
+                    <li>例如访问 <a href="http://astrology.yahoo.com/astrology">http://astrology.yahoo.com/astrology</a> 导致301响应，其中包含了一个到 <a
+                            href="http://astrology.yahoo.com/astrology/">http://astrology.yahoo.com/astrology/</a>  的重定向。如下图： </li>
+                    <img src="images/list_11_1.png" style="margin: 0 auto;"/>
+                    <li>注意：当主机名后缺少结尾斜线时不会产生重定向。例如：<a href="http://www.yahoo.com">http://www.yahoo.com</a>不会产生重定向，你在浏览器看到的最终URL是包含斜线的。那是因为浏览器在进行GET请求时必须指定一些路径，如果没有路径，它就会简单的使用文档根 ( / ) 。</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="section twelve">
+        <div class="inner-section-top">
+            十二、删除重复脚本
+        </div>
+    </div>
+    <div class="section thirteen">
+        <div class="slide thirteen-slide1">
+            <div class="inner-section-top">
+                十三、配置或移除 Etag <span class="circle">1</span>回顾Expires
+            </div>
+            <div></div>
+            <div class="inner-section-bottom">
+                <ol>
+                    <li>浏览器下载组件时，会将它们存储到缓冲中。</li>
+                    <li>在后续的页面浏览中，如果缓冲的组件是新的（没有修改）并且组件没有过期。浏览器就会从磁盘上读取它，避免产生HTTP请求。</li>
+                    <li>expires：Wed, 18 Oct 2017 08:26:29 GMT</li>
+                </ol>
+            </div>
+        </div>
+        <div class="slide thirteen-slide2">
+            <div class="inner-section-top">
+                十三、配置或移除 Etag <span class="circle">2</span>组件的最新修改日期（组件是否修改）
+            </div>
+            <div></div>
+            <div class="inner-section-bottom">
+                <ol>
+                    <li>在这个示例中，浏览器因为Expires或Catch-control缓冲了组件。</li>
+                    <li>原始服务器通过Last-Modified响应头来返回组件的最新修改日期。浏览器缓冲组件并且保存最新修改日期。</li>
+                    <img src="images/list_13_1.png" style="margin: 0 auto;" />
+                    <li>下一次请求该组件时，浏览器使用If-Modified-Since头将最新修改日期传回到原始服务器进行比较。如果原始服务器上组件的最新修改日期与浏览器传回的值匹配，则返回304响应。而不会返回类似：content-length:1451字节的数据。</li>
+                    <img src="images/list_13_2.png" style="margin: 0 auto;" />
+                </ol>
+            </div>
+            <div class="slide thirteen-slide3">
+                <div class="inner-section-top">
+                    十三、配置或移除 ETag <span class="circle">3</span>ETag是什么？
+                </div>
+                <div></div>
+                <div class="inner-section-bottom">
+                    <ol>
+                        <li>ETag：实体标签是WEB服务器和浏览器用于确认缓冲组件有效性的另外一种机制。</li>
+                        <li>原始服务器使用ETag响应头来指定组件的ETag。</li>
+                        <img src="images/list_13_3.png" />
+                        <li>浏览器使用if-None-Match头将Etag传回服务器。如果ETag是匹配的，就会返回304状态码。</li>
+                        <img src="images/list_13_4.png" />
+                        <li>if-None-Match比If-Modified-Since的优先级高。</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="slide thirteen-slide3">
+                <div class="inner-section-top">
+                    十三、配置或移除 ETag <span class="circle">4</span>ETag带来的问题
+                </div>
+                <div></div>
+                <div class="inner-section-bottom">
+                    <ol>
+                        <li>如果使用服务器集群的话，ETag会带来问题。</li>
+                        <li>当浏览器从一台服务器上获取了原始组件。之后，又向另外一台不同的服务器发起请求，ETag是不会匹配成功的。这样会大大降低有效性验证的成功率。</li>
+                        <li>因此，如果使用ETag，就需要进行相应配置(请百度)。如果不配置，最好简单地将其移除。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section fourteen">
+        <div class="inner-section-top">
+            十四、使用Ajax 可缓冲
+        </div>
+    </div>
+    <div class="section fifteen">
+        <div class="slide fifteen-slide1">
+            <div class="inner-section-top">
+                十五、去除布局跌簸：<span class="circle">1</span>抛出问题：
+            </div>
+            <div></div>
+            <div class="inner-section-bottom">
+                <p class="text-left" style="font-size: 1.6rem; color: #2980b9">抛出问题：</p>
+                <ol>
+                    <li>
+                        考虑一下网页操作是如何进行设置(setting)和获取(getting)这两项任何的：
+                        <ul style="padding-left: 2rem;">
+                            <li>例一：设置一个元素的CSS属性(setting)，获取一个元素的CSS属性(getting)。</li>
+                            <li>例二：往页面里插入新元素(setting)，或者从页面里查询一组已存在的元素(getting)</li>
+                        </ul>
+                    </li>
+                    <li>设置(setting)和获取(getting)是引发性能开销的两个核心浏览器进程(还有图形渲染)。在为元素设置了新属性以后，浏览器必须计算这次更改所产生的后续影响，如：改变一个元素的宽度会导致它的父元素、兄弟元素和子元素的宽度根据各自的CSS属性也要调整。</li>
+                    <li style="color: #fff;">由设置(setting)和获取(getting)的交替而导致的UI性能降低被称为"布局跌簸"</li>
+                    <li>尽管浏览器已经为页面的布局的重新计算进行了高度优化，但由于布局跌簸，这些优化大大折扣。
+                        <br />
+                        如：浏览器可以轻易地将同一时间的一系列获取(getting)操作优化为一个单一的、流畅的操作。因为浏览器第一次获取(getting)之后可以缓冲页面的状态，然后在后续每次获取(setting)操作时，参考那个状态。但是，如果反复的执行了获取(getting)之后又进行设置(setting)。就会使缓冲失效。
+                        什么意思呢：说白了就是 getting->setting，getting->setting,getting->setting，这样会缓冲失效。而应该改为getting，getting,getting->setting,setting,setting
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="slide fifteen-slide2">
+            <div class="inner-section-top">
+                十五、去除布局跌簸：<span class="circle">2</span>解决办法
+            </div>
+            <div></div>
+            <div class="inner-section-bottom">
+                <img src="images/list_15_1.png" />
+            </div>
+        </div>
+        <div class="slide fifteen-slide3">
+            <div class="inner-section-top">
+                十五、去除布局跌簸：<span class="circle">3</span>解决办法
+            </div>
+            <div></div>
+            <div class="inner-section-bottom">
+                <img src="images/list_15_2.png" />
+            </div>
+        </div>
+    </div>
+    <div class="section sixteen">
+        <div class="inner-section-top">
+            十六、批量添加DOM
+        </div>
+        <div></div>
+        <div class="inner-section-bottom">
+            <img src="images/list_16_1.png" alt="" />
+        </div>
+    </div>
+    <div class="section seventeen">
+        <div class="inner-section-top">
+            十七、避免影响临近元素
+        </div>
+        <div></div>
+        <div class="inner-section-bottom">
+            <ol>
+                <li>
+                    问题：
+                    <ul style="padding-left: 2rem;">
+                        <li>设置一个元素的尺寸时，经常会影响附近元素的定位。</li>
+                        <li>例：有一个嵌入在父元素中的子元素，父元素的width和height都是auto。设置子元素的动画时，父元素的尺寸也会发生改变，从而确保将子元素包裹住。</li>
+                        <li>实际上，子元素并不是唯一被设置动画的元素，如它的父元素的尺寸也被设置了动画。如果发生在动画循环里边，那浏览器在每次循环时做的工作更多了。</li>
+                    </ul>
+                </li>
+                <li>
+                    优化：
+                    <ul style="padding-left: 2rem;">
+                        <li>有很多CSS属性，一经改变就会造成临近元素尺寸进行调整，如：top、right、bottom、left、margin、padding、border、width、height等</li>
+                        <li>这种可以避免影响到临近元素的解决办法是：尽可能设置CSS的 transform属性(translateX、translateY、scaleX、scaleY、rotateZ、rotateX、rotateY)的动画。</li>
+                        <li>transform属性的特殊之处，在于它们将目标元素提升至一个单独的层，这个层可以独立于页面其他内容单独渲染。例如：</li>
+                    </ul>
+                    <img src="images/list_17_1.png" alt="" />
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="section eighteen">
+        <div class="inner-section-top">
+            十八、不使用持续响应滚动(scroll)和调整大小(resize)事件
+        </div>
+        <div></div>
+        <div class="inner-section-bottom">
+            <div class="pull-left" style="width: 50%;">
+                <img src="images/list_18_1.png" alt="" style="width: 100%;"/>
+            </div>
+            <div class="pull-right" style="width: 50%;">
+                <img src="images/list_18_2.png" alt="" style="width: 100%;"/>
+            </div>
+        </div>
+    </div>
+    <div class="section nineteen">
+        <div class="inner-section-top">
+            十九、减少图片渲染
+        </div>
+        <div></div>
+        <div class="inner-section-bottom">
+            <ol>
+                <li>
+                    问题：
+                    <ul style="padding-left: 2rem;">
+                        <li>视屏和图片是多媒体元素类型，浏览器需要加倍努力渲染才行。</li>
+                        <li>要计算 非多媒体 元素的尺寸浏览器很轻松，但是多媒体元素包含成千上万的像素数据，要改变它们的大小、尺寸或重新合成，浏览器开销很大。</li>
+
+                    </ul>
+                </li>
+                <li>
+                    优化：
+                    <ul style="padding-left: 2rem;">
+                        <li>不幸的是：除了尽可能把简单的、基于图形的图片转化成SVG元素以外，就没有任何办法可以将多媒体内容重构成更快的元素类型。</li>
+                        <li>因此：唯一可行的性能优化做法就是减少在页面上 同时显示 和 同时设置 动画 的多媒体元素 总数。</li>
+                        <li>
+                            因此：有两种最佳实践：
+                            <ol style="padding-left: 2rem;">
+                                <li style="list-style-type: decimal;">如果感觉在页面上添加不添加图片无所谓，那么不添加。渲染的图片越少，性能越好。</li>
+                                <li style="list-style-type: decimal;">如果同时加载很多图片进入视图，考虑不要设置这些图片的动画，或者只是简单的从 图片的 不可见到可见。这种视觉效果可能不好，弥补这一点，可以考虑错开切换可见性的时间，使图片一个接一个显示而不是同时显示，这样往往会产生更精致的动效。</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<script src="plugin/jquery/jquery.min.js"></script>
+<script src="plugin/fullpage/jquery.fullpage.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
